@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auxi.run"
+version = "0.0.1"
+requires-python = ">=3.11"
+
+
+dependencies = [
+    "openai"
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage",
+    "pytest>=7.3",
+    "pytest-sugar",
+    "mypy>=1.0.0",
+    "black",
+    "ruff",
+    "pytest-xdist",
+    "python-dotenv",
+    "openai",
+    "faster-whisper",
+]
+
+[tool.ruff]
+ignore = [
+    "DJ", # flake8-django
+    "ANN", # flake8-annotations - leave these to mypy
+    "PD", # pandas-vet - we don't use pandas
+    "NPY", # NumPy-specific rules - we don't use numpy
+    "AIR", # Airflow - we don't use apache airflow
+    "S101", # Use of assert detected - I use assert for typing and testing
+
+]
+select = ["ALL"]
+
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+
+
+
+[tool.setuptools]
+packages = ["app"]

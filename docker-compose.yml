@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  front-end:
+    build:
+      context: front-end
+      dockerfile: docker/Dockerfile
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+      DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
+      DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}
+      DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
+    volumes:
+      - ./front-end/:/opt/app
+
+    ports:
+      - "8800:80"
+
+  # swagger-ui:
+  #   container_name: swagger-ui
+  #   image: swaggerapi/swagger-ui:latest
+  #   ports:
+  #     - "8880:8080"
+  #   environment:
+  #     API_URL: http://localhost:3000/
+  #     TRY_IT_OUT_ENABLED: true
+
+volumes:
+  postgres_data:
