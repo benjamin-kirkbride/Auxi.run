@@ -1,0 +1,16 @@
+{
+  "cSpell.words": [
+    "astype",
+    "auxi",
+    "Couldnt",
+    "Fhrozen",
+    "huggingface",
+    "levelname",
+    "openai",
+    "openwakeword",
+    "pydub",
+    "scipy",
+    "tqdm"
+  ],
+  "python.analysis.extraPaths": ["./auxi"]
+}

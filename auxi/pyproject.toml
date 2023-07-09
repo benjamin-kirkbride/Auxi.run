@@ -26,8 +26,23 @@ dev = [
     "faster-whisper",
     "pytest-cov",
     "hypothesis",
+    "openwakeword",
 ]
 
+train = [
+    "speechbrain",
+    "datasets",
+    "scipi",
+    "matplotlib",
+    "numpy",
+    "pyaudio",
+    "mutagen",
+    "acoustics",
+    "soundfile",
+    "librosa",
+    "requests",
+    "pydub",
+]
 [tool.ruff]
 ignore = [
     "DJ", # flake8-django
@@ -56,4 +71,4 @@ warn_unused_configs = true
 
 
 [tool.setuptools]
-packages = ["app", "compare_models"]
+packages = ["app", "compare_models", "train"]
