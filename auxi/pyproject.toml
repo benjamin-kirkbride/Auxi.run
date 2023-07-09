@@ -24,6 +24,8 @@ dev = [
     "python-dotenv",
     "openai",
     "faster-whisper",
+    "pytest-cov",
+    "hypothesis",
 ]
 
 [tool.ruff]
@@ -34,10 +36,14 @@ ignore = [
     "NPY", # NumPy-specific rules - we don't use numpy
     "AIR", # Airflow - we don't use apache airflow
     "S101", # Use of assert detected - I use assert for typing and testing
+    "G004", # logging-f-string - I want to use fstrings for logs, I don't care about the consequences
+    "COM812", # https://github.com/astral-sh/ruff/issues/3303#issuecomment-1627485692
 
 ]
 select = ["ALL"]
-
+[tool.ruff.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
 
 [tool.mypy]
 python_version = "3.11"
@@ -50,4 +56,4 @@ warn_unused_configs = true
 
 
 [tool.setuptools]
-packages = ["app"]
+packages = ["app", "compare_models"]
